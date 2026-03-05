@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cabinet Grotesk - Display font */
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Plus Jakarta Sans - Body font */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans-Variable.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Cool blue HVAC palette */
+    --background: 0.985 0.003 230;
+    --foreground: 0.12 0.025 240;
+
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.025 240;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.025 240;
+
+    /* Deep navy primary */
+    --primary: 0.28 0.09 252;
+    --primary-foreground: 0.98 0.005 240;
+
+    /* Sky blue secondary */
+    --secondary: 0.92 0.035 225;
+    --secondary-foreground: 0.25 0.08 250;
+
+    --muted: 0.94 0.012 225;
+    --muted-foreground: 0.52 0.03 240;
+
+    /* Ice blue accent */
+    --accent: 0.60 0.16 230;
+    --accent-foreground: 0.98 0.005 240;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.88 0.022 225;
+    --input: 0.88 0.022 225;
+    --ring: 0.55 0.14 240;
+
+    --chart-1: 0.55 0.16 240;
+    --chart-2: 0.65 0.14 200;
+    --chart-3: 0.75 0.10 180;
+    --chart-4: 0.60 0.12 260;
+    --chart-5: 0.45 0.18 250;
+
+    --sidebar: 0.97 0.008 225;
+    --sidebar-foreground: 0.15 0.025 240;
+    --sidebar-primary: 0.28 0.09 252;
+    --sidebar-primary-foreground: 0.98 0.005 240;
+    --sidebar-accent: 0.92 0.035 225;
+    --sidebar-accent-foreground: 0.25 0.08 250;
+    --sidebar-border: 0.88 0.022 225;
+    --sidebar-ring: 0.55 0.14 240;
+
+    /* Brand custom tokens */
+    --brand-navy: 0.22 0.085 255;
+    --brand-blue: 0.50 0.18 235;
+    --brand-sky: 0.72 0.12 218;
+    --brand-ice: 0.93 0.04 220;
+    --brand-white: 1 0 0;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Cabinet Grotesk", sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Cabinet Grotesk", sans-serif;
+  }
+
+  .brand-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--brand-navy)) 0%,
+      oklch(var(--brand-blue)) 60%,
+      oklch(var(--brand-sky)) 100%
+    );
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      oklch(var(--brand-navy) / 0.82) 0%,
+      oklch(var(--brand-blue) / 0.65) 60%,
+      oklch(0.18 0.07 255 / 0.75) 100%
+    );
+  }
+
+  .section-wave {
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+  }
+
+  .card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px oklch(var(--brand-blue) / 0.18);
+  }
+
+  .floating-btn {
+    box-shadow: 0 4px 20px oklch(0 0 0 / 0.25);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .floating-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 28px oklch(0 0 0 / 0.35);
+  }
+}
